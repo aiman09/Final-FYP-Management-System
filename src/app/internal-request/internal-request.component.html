@@ -1,0 +1,178 @@
+<div>
+  <div class="row">
+      <div class="col">
+        <app-sidebar></app-sidebar>
+      </div>
+      <div class="col-8 exp">
+    <div class="center">
+      <form [formGroup]="internalForm" (ngSubmit)="onSubmit()" class="row g-3 needs-validation" novalidate>
+        <h2>Internal FYP Request</h2>
+        <hr/>
+        <div class="col-md-6">
+          <label for="validationCustom01" class="form-label">Project Title </label>
+          <input type="text" class="form-control" id="validationCustom01" value=""  placeholder="Project Title" required  formControlName="projectTitle">
+          <span *ngIf="!projectTitle.valid && (projectTitle.touched || userSubmitted)"
+          class="error-block">
+            Please provide Project Title!
+          </span>
+        </div>
+        <div class="col-md-6">
+          <label for="validationCustom02" class="form-label">Project name</label>
+          <input type="text" class="form-control" id="validationCustom02" value="" placeholder="Project Name" required  formControlName="projectName">
+          <span *ngIf="!projectName.valid && (projectName.touched || userSubmitted)"
+          class="error-block">
+            Please provide Project Name!
+          </span>
+        </div>
+        <div class="col-md-12">
+          <label>Project Description</label>
+          <textarea
+          class="form-control"
+          rows="3"
+          placeholder="Write your project description here"
+          formControlName="projectDescription"></textarea>
+          <span *ngIf="!projectDescription.valid && (projectDescription.touched || userSubmitted)"
+          class="error-block">
+            Please provide Project Description!
+          </span>
+        </div>
+
+        <div class="col-md-12">
+          <label>Team Members</label>
+          <select id="inputState" class="form-control"  formControlName="teamMembers">
+            <span *ngIf="!teamMembers.valid && (teamMembers.touched || userSubmitted)"
+            class="error-block">
+              Please provide Team Number!
+            </span>
+            <option selected>Choose...</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+
+          </select>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-3">
+              <label>Group Member 1</label>
+              <input type="text" class="form-control" placeholder="Name"  formControlName="groupMember1"/>
+              <span *ngIf="! groupMember1.valid && ( groupMember1.touched || userSubmitted)"
+              class="error-block">
+                Please provide Group Member 1!
+              </span>
+            </div>
+            <div class="form-group col-md-3">
+              <label>Group Member 2</label>
+              <input type="text" class="form-control" placeholder="Name"  formControlName="groupMember2"/>
+              <span *ngIf="!groupMember2.valid && (groupMember2.touched || userSubmitted)"
+              class="error-block">
+                Please provide Group Member 2!
+              </span>
+            </div>
+            <div class="form-group col-md-3">
+              <label>Group Member 3</label>
+              <input type="text" class="form-control" placeholder="Name" formControlName="groupMember3"/>
+            </div>
+            <div class="form-group col-md-3">
+              <label>Group Member 4</label>
+              <input type="text" class="form-control" placeholder="Name"  formControlName="groupMember4"/>
+            </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-3">
+            <label>CMS ID 1</label>
+            <input type="text" class="form-control" placeholder="Id" formControlName="cmsID1"/>
+            <span *ngIf="!cmsID1.valid && (cmsID1.touched || userSubmitted)"
+            class="error-block">
+              Please provide Group CMS1!
+            </span>
+          </div>
+          <div class="form-group col-md-3">
+            <label>CMS ID 2</label>
+            <input type="text" class="form-control" placeholder="Id" formControlName="cmsID2"/>
+            <span *ngIf="!cmsID2.valid && (cmsID2.touched || userSubmitted)"
+            class="error-block">
+              Please provide Group CMS2!
+            </span>
+          </div>
+          <div class="form-group col-md-3">
+            <label>CMS ID 3</label>
+            <input type="text" class="form-control" placeholder="Id"  formControlName="cmsID3"/>
+          </div>
+          <div class="form-group col-md-3">
+            <label>CMS ID 4</label>
+            <input type="text" class="form-control" placeholder="Id" formControlName="cmsID4"/>
+          </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-3">
+          <label>Email ID 1</label>
+          <input type="text" class="form-control" placeholder="email" formControlName="emailID1"/>
+          <span *ngIf="!emailID1.valid && (emailID1.touched|| userSubmitted)" class="error-block">
+            <span *ngIf="emailID1.hasError('required')">
+                Please provide email id
+            </span>
+            <span *ngIf="emailID1.hasError('email')">
+              Please provide valid email id
+            </span>
+          </span>
+
+        </div>
+        <div class="form-group col-md-3">
+          <label>Email ID 2</label>
+          <input type="text" class="form-control" placeholder="email" formControlName="emailID2"/>
+          <span *ngIf="!emailID2.valid && (emailID2.touched|| userSubmitted)" class="error-block">
+            <span *ngIf="emailID2.hasError('required')">
+                Please provide email id
+            </span>
+            <span *ngIf="emailID2.hasError('email')">
+              Please provide valid email id
+            </span>
+          </span>
+
+        </div>
+        <div class="form-group col-md-3">
+          <label>Email ID 3</label>
+          <input type="text" class="form-control" placeholder="email"  formControlName="emailID3"/>
+        </div>
+        <div class="form-group col-md-3">
+          <label>Email ID 4</label>
+          <input type="text" class="form-control" placeholder="email" formControlName="emailID4"/>
+        </div>
+  </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputCity">Supervisor Name</label>
+        <input type="text" class="form-control" placeholder="Name" formControlName="SupName"/>
+        <span *ngIf="!SupName.valid && (SupName.touched || userSubmitted)"
+        class="error-block">
+          Please provide Group Supervisor Name!
+        </span>
+      </div>
+
+      <div class="form-group col-md-6">
+          <label for="inputCity">Co-Supervisor Name</label>
+          <input type="text" class="form-control" placeholder="Name"  formControlName="CoSupName"/>
+          <span *ngIf="!CoSupName.valid && (CoSupName.touched || userSubmitted)"
+          class="error-block">
+            Please provide CO Supervisor Name!
+          </span>
+        </div>
+    </div>
+
+        <div class="col-12">
+          <button [disabled]="internalForm.invalid" class="btn btn-primary" type="submit">Submit form</button>
+        </div>
+      </form>
+
+    </div>
+      </div>
+    </div>
+
+
+  </div>
+
+
+

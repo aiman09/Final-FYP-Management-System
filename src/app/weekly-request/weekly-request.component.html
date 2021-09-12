@@ -1,0 +1,87 @@
+
+  <div class="row">
+      <div class="col">
+        <app-sidebar></app-sidebar>
+      </div>
+      <div class="col-8 exp">
+        <form [formGroup]="weeklyForm" (ngSubmit)="onSubmit()" class="row g-3 needs-validation" novalidate>
+        <h2>Weekly Meetings</h2>
+        <hr/>
+
+        <div class="form-row">
+          <div class="form-group col-md-6">
+
+            <label>Please select a date and time</label>
+            <input type="text"
+                   placeholder="Datepicker"
+                   class="form-control"
+                   bsDatepicker
+                   formControlName="Pickerdate">
+                      <span *ngIf="!Pickerdate.valid && (Pickerdate.touched || userSubmitted)"
+            class="error-block">
+             Date and Time Required !
+            </span>
+          </div>
+
+          <div class="form-group col-md-6">
+            <timepicker [(ngModel)]="mytime"
+            formControlName="time">
+          </timepicker>
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputCity">Supervisor Name</label>
+            <input type="text" class="form-control" placeholder="Name" formControlName="SupName"/>
+            <span *ngIf="!SupName.valid && (SupName.touched || userSubmitted)"
+            class="error-block">
+              Please provide Group Supervisor Name!
+            </span>
+          </div>
+
+          <div class="form-group col-md-6">
+              <label for="inputCity">Co-Supervisor Name</label>
+              <input type="text" class="form-control" placeholder="Name"  formControlName="Cosupname"/>
+              <span *ngIf="!Cosupname.valid && (Cosupname.touched || userSubmitted)"
+              class="error-block">
+                Please provide CO Supervisor Name!
+              </span>
+            </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputCity">Student Name</label>
+            <input type="text" class="form-control" placeholder="Name" formControlName="StudentName"/>
+            <span *ngIf="!StudentName.valid && (StudentName.touched || userSubmitted)"
+            class="error-block">
+              Please provide Your Name!
+            </span>
+          </div>
+
+          <div class="form-group col-md-6">
+              <label for="inputCity">Project Title</label>
+              <input type="text" class="form-control" placeholder="Name"  formControlName="projTitle"/>
+              <span *ngIf="!projTitle.valid && (projTitle.touched || userSubmitted)"
+              class="error-block">
+                Please provide Project Title!
+              </span>
+            </div>
+        </div>
+        <div class="col-12">
+          <button [disabled]="weeklyForm.invalid" class="btn btn-primary" type="submit">Submit Request</button>
+        </div>
+        </form>
+      </div>
+    </div>
+
+
+
